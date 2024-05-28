@@ -1,7 +1,7 @@
 package com.ms.rest.user.management.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
@@ -13,18 +13,23 @@ public class UserEntity {
     private int id;
 
     @Column(name = "first_name")
+    @JsonProperty("first_name")
     private String firstName;
 
     @Column(name = "last_name")
+    @JsonProperty("last_name")
     private String lastName;
 
     @Column(name = "date_of_birth")
+    @JsonProperty("date_of_birth")
     private LocalDate dateOfBirth;
 
     @Column(name = "phone_number")
+    @JsonProperty("phone_number")
     private String phoneNumber;
 
     @Column(name = "email_address")
+    @JsonProperty("email_address")
     private String emailAddress;
 
     // No Args Constructor
