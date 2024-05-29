@@ -1,19 +1,21 @@
 package com.ms.rest.user.management.Service;
 
 
+import com.ms.rest.user.management.DTO.UserRequestDTO;
+import com.ms.rest.user.management.DTO.UserResponseDTO;
 import com.ms.rest.user.management.Entity.UserEntity;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    public UserEntity createUser(UserEntity user);
+    UserResponseDTO createUser(UserRequestDTO user);
 
-    Optional<UserEntity> getUserById(Integer id);
+    Optional<UserResponseDTO> getUserById(Integer id);
 
-    List<UserEntity> getAllUser();
+    List<UserResponseDTO> getAllUser();
 
-    Optional<UserEntity> updateUser(Integer id, UserEntity user);
+    Optional<UserResponseDTO> updateUser(Integer id, UserRequestDTO user);
 
-    Optional<UserEntity> deleteUser(Integer id);
+    Optional<UserResponseDTO> deleteUser(Integer id);
 }
