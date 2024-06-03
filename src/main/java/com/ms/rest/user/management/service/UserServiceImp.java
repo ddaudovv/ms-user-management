@@ -1,10 +1,10 @@
-package com.ms.rest.user.management.Service;
+package com.ms.rest.user.management.service;
 
-import com.ms.rest.user.management.DTO.UserRequestDTO;
-import com.ms.rest.user.management.DTO.UserResponseDTO;
-import com.ms.rest.user.management.Entity.UserEntity;
-import com.ms.rest.user.management.Mapper.UserMapper;
-import com.ms.rest.user.management.Repository.UserRepository;
+import com.ms.rest.user.management.dto.UserRequestDTO;
+import com.ms.rest.user.management.dto.UserResponseDTO;
+import com.ms.rest.user.management.entity.UserEntity;
+import com.ms.rest.user.management.mapper.UserMapper;
+import com.ms.rest.user.management.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

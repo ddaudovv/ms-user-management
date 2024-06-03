@@ -1,8 +1,8 @@
-package com.ms.rest.user.management.Controller;
+package com.ms.rest.user.management.controller;
 
-import com.ms.rest.user.management.DTO.UserRequestDTO;
-import com.ms.rest.user.management.DTO.UserResponseDTO;
-import com.ms.rest.user.management.Service.UserServiceImp;
+import com.ms.rest.user.management.dto.UserRequestDTO;
+import com.ms.rest.user.management.dto.UserResponseDTO;
+import com.ms.rest.user.management.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,8 @@
-package com.ms.rest.user.management.Service;
+package com.ms.rest.user.management.service;
 
 
-import com.ms.rest.user.management.DTO.UserRequestDTO;
-import com.ms.rest.user.management.DTO.UserResponseDTO;
-import com.ms.rest.user.management.Entity.UserEntity;
+import com.ms.rest.user.management.dto.UserRequestDTO;
+import com.ms.rest.user.management.dto.UserResponseDTO;
 
 import java.util.List;
 import java.util.Optional;

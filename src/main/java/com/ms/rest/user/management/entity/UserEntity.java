@@ -1,30 +1,37 @@
-package com.ms.rest.user.management.DTO;
+package com.ms.rest.user.management.entity;
 
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-public class UserRequestDTO {
-    @NotEmpty(message = "First name can not be empty.")
+@Entity
+@Table(name = "user_details")
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "first_name")
     private String firstName;
 
-    @NotEmpty(message = "Last name can not be empty.")
+    @Column(name = "last_name")
     private String lastName;
 
-    @NotEmpty(message = "Date of birth can not be empty.")
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @NotEmpty(message = "Phone number can not be empty.")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @NotEmpty(message = "Email address can not be empty.")
+    @Column(name = "email_address")
     private String emailAddress;
 
-
-    public UserRequestDTO() {
+    // No Args Constructor
+    public UserEntity() {
     }
 
-    public UserRequestDTO(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String emailAddress) {
+    public UserEntity(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String emailAddress) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -32,6 +39,13 @@ public class UserRequestDTO {
         this.emailAddress = emailAddress;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -75,8 +89,9 @@ public class UserRequestDTO {
 
     @Override
     public String toString() {
-        return "UserRequestDTO{" +
-                "firstName='" + firstName + '\'' +
+        return "UserEntity{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", phoneNumber='" + phoneNumber + '\'' +

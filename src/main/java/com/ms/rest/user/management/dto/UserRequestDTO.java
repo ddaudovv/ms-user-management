@@ -1,25 +1,30 @@
-package com.ms.rest.user.management.DTO;
+package com.ms.rest.user.management.dto;
+
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDate;
 
-public class UserResponseDTO {
-    private Integer id;
+public class UserRequestDTO {
+    @NotEmpty(message = "First name can not be empty.")
     private String firstName;
 
+    @NotEmpty(message = "Last name can not be empty.")
     private String lastName;
 
+    @NotEmpty(message = "Date of birth can not be empty.")
     private LocalDate dateOfBirth;
 
+    @NotEmpty(message = "Phone number can not be empty.")
     private String phoneNumber;
 
+    @NotEmpty(message = "Email address can not be empty.")
     private String emailAddress;
 
 
-    public UserResponseDTO() {
+    public UserRequestDTO() {
     }
 
-    public UserResponseDTO(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String emailAddress) {
-        this.id = id;
+    public UserRequestDTO(String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -27,13 +32,6 @@ public class UserResponseDTO {
         this.emailAddress = emailAddress;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -77,7 +75,7 @@ public class UserResponseDTO {
 
     @Override
     public String toString() {
-        return "UserResponseDTO{" +
+        return "UserRequestDTO{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +

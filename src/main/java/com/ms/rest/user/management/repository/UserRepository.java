@@ -1,6 +1,6 @@
-package com.ms.rest.user.management.Repository;
+package com.ms.rest.user.management.repository;
 
-import com.ms.rest.user.management.Entity.UserEntity;
+import com.ms.rest.user.management.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

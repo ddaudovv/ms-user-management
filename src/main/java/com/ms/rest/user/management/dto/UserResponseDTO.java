@@ -1,36 +1,24 @@
-package com.ms.rest.user.management.Entity;
-
-import jakarta.persistence.*;
+package com.ms.rest.user.management.dto;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "user_details")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "first_name")
+public class UserResponseDTO {
+    private Integer id;
     private String firstName;
 
-    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "email_address")
     private String emailAddress;
 
-    // No Args Constructor
-    public UserEntity() {
+
+    public UserResponseDTO() {
     }
 
-    public UserEntity(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String emailAddress) {
+    public UserResponseDTO(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String phoneNumber, String emailAddress) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -89,9 +77,8 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+        return "UserResponseDTO{" +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", phoneNumber='" + phoneNumber + '\'' +

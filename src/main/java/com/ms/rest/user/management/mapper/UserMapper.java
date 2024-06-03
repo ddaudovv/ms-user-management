@@ -1,12 +1,11 @@
-package com.ms.rest.user.management.Mapper;
+package com.ms.rest.user.management.mapper;
 
 
-import com.ms.rest.user.management.DTO.UserRequestDTO;
-import com.ms.rest.user.management.DTO.UserResponseDTO;
-import com.ms.rest.user.management.Entity.UserEntity;
+import com.ms.rest.user.management.dto.UserRequestDTO;
+import com.ms.rest.user.management.dto.UserResponseDTO;
+import com.ms.rest.user.management.entity.UserEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserMapper {
     UserResponseDTO toResponseDTO (UserEntity user);
