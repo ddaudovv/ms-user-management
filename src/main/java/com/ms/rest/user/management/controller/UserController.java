@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -33,18 +32,9 @@ public class UserController {
 
 
     @GetMapping("/{userId}")
-    public ResponseEntity<Optional<UserResponseDTO>> getUser(@PathVariable Integer userId) {
-        try {
-            Optional<UserResponseDTO> responseUser = userService.getUserById(userId);
-
-            if (responseUser.isPresent()) {
-                return ResponseEntity.ok(responseUser);
-            }
-
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+    public ResponseEntity<UserResponseDTO> getUser(@PathVariable Integer userId) {
+        UserResponseDTO responseUser = userService.getUserById(userId);
+        return ResponseEntity.ok(responseUser);
     }
 
 
@@ -54,31 +44,22 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<UserResponseDTO>> searchUsers(@RequestParam String term) {
+        List<UserResponseDTO> users = userService.searchUsers(term);
+        return ResponseEntity.ok(users);
+    }
 
     @PutMapping("/update/{userId}")
-    public ResponseEntity<Optional<UserResponseDTO>> updateUser(@PathVariable Integer userId, @RequestBody UserRequestDTO newUser) {
-        Optional<UserResponseDTO> updatedUser = userService.updateUser(userId, newUser);
-
-        if (updatedUser.isPresent()) {
-            return ResponseEntity.ok(updatedUser);
-        }
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable Integer userId, @RequestBody UserRequestDTO newUser) {
+        UserResponseDTO updatedUser = userService.updateUser(userId, newUser);
+        return ResponseEntity.ok(updatedUser);
     }
 
 
     @DeleteMapping("/delete/{userId}")
-    public ResponseEntity<Optional<UserResponseDTO>> deleteUser(@PathVariable Integer userId) {
-        try {
-            Optional<UserResponseDTO> deletedUser = userService.deleteUser(userId);
-
-            if (deletedUser.isPresent()) {
-                return ResponseEntity.ok(deletedUser);
-            }
-
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Optional.empty());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Optional.empty());
-        }
+    public ResponseEntity<UserResponseDTO> deleteUser(@PathVariable Integer userId) {
+        UserResponseDTO deletedUser = userService.deleteUser(userId);
+        return ResponseEntity.ok(deletedUser);
     }
 }

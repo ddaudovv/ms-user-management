@@ -10,11 +10,13 @@ import java.util.Optional;
 public interface UserService {
     UserResponseDTO createUser(UserRequestDTO user);
 
-    Optional<UserResponseDTO> getUserById(Integer id);
+    UserResponseDTO getUserById(Integer id);
 
     List<UserResponseDTO> getAllUser();
 
-    Optional<UserResponseDTO> updateUser(Integer id, UserRequestDTO user);
+    List<UserResponseDTO> searchUsers(String searchTerm);
 
-    Optional<UserResponseDTO> deleteUser(Integer id);
+    UserResponseDTO updateUser(Integer id, UserRequestDTO user);
+
+    UserResponseDTO deleteUser(Integer id);
 }
