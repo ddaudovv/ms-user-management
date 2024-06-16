@@ -60,7 +60,11 @@ The User Management Application is an application built with Spring Boot and des
 All endpoints are relative to the base URL:  `http://localhost:8080`
 
 ### Authentication
-All endpoints ,except for creating a new user, require basic authentication. To access these endpoints, include the `Authorization` header in your requests with username and password.
+All endpoints, except for creating a new user, require basic authentication. To access these endpoints, include the `Authorization` header in your requests with username and password.
+
+- Header Example:
+  - `username: user` `password: user`
+  - `username: admin` `password: admin`
 
 ### Endpoints
 
